@@ -42,7 +42,7 @@ bullet_act
 					crush()
 					qdel(src)
 			else
-				return ..(W, user)
+				user << "<span class = 'notice'>You don't know how to butcher people.</span>"
 	else
 		return ..(W, user)
 
