@@ -9,6 +9,7 @@
 		/obj/item/clothing/accessory/storage/webbing = 50,
 		/obj/item/clothing/under/sovuni = 50,
 		/obj/item/clothing/head/helmet/sovhelm = 50,
+		/obj/item/clothing/mask/shemagh = 50,
 		/obj/item/clothing/shoes/swat/wrappedboots = 50,
 		/obj/item/clothing/head/ushanka = 25,
 		/obj/item/clothing/mask/gas/soviet = 25,
@@ -28,6 +29,7 @@
 		/obj/item/clothing/under/geruni = 50,
 		/obj/item/clothing/head/helmet/gerhelm = 50,
 		/obj/item/clothing/head/caphat/gercap/fieldcap2 = 50,
+		/obj/item/clothing/mask/shemagh = 50,
 		/obj/item/clothing/shoes/swat = 50,
 		/obj/item/clothing/mask/gas/german = 25,
 		/obj/item/weapon/storage/belt/german_basic = 15,
@@ -38,28 +40,31 @@
 	desc = "Basic wear for US Army soldiers."
 	icon_state = "apparel_usa"
 	products = list(
-//		/obj/item/clothing/suit/storage/coat/german = 50,
+		/obj/item/clothing/suit/storage/coat/american = 50,
 		/obj/item/clothing/accessory/storage/webbing = 50,
 		/obj/item/clothing/under/usuni = 50,
 		/obj/item/clothing/under/usuni2 = 20,
 		/obj/item/clothing/under/usuni3 = 10,
 		/obj/item/clothing/head/helmet/ushelm = 50,
 		/obj/item/clothing/head/helmet/usnco = 50,
+		/obj/item/clothing/mask/shemagh = 50,
 		/obj/item/clothing/shoes/usboots = 50,
 		/obj/item/clothing/mask/gas/usa = 25,
-		/obj/item/weapon/storage/backpack/usa = 15
+		/obj/item/weapon/storage/backpack/usa = 15,
+		/obj/item/weapon/storage/belt/usa = 20
 	)
 /obj/structure/vending/marinesapparel
 	name = "US Marines apparel rack"
 	desc = "Basic wear for US Marines soldiers."
 	icon_state = "apparel_usa"
 	products = list(
-//		/obj/item/clothing/suit/storage/coat/german = 50,
+		/obj/item/clothing/suit/storage/coat/american = 50,
 		/obj/item/clothing/accessory/storage/webbing = 50,
 		/obj/item/clothing/under/usuni = 50,
 		/obj/item/clothing/under/usuni2 = 20,
 		/obj/item/clothing/under/usuni3 = 10,
 		/obj/item/clothing/head/helmet/ushelm_mar = 50,
+		/obj/item/clothing/mask/shemagh = 50,
 		/obj/item/clothing/shoes/usboots = 50,
 		/obj/item/clothing/mask/gas/usa = 25,
 		/obj/item/weapon/storage/backpack/usa = 15
@@ -109,7 +114,8 @@
 		/obj/item/weapon/grenade/explosive/stgnade = 10,
 		/obj/item/weapon/grenade/smokebomb/german = 20,
 		/obj/item/weapon/attachment/scope/adjustable/sniper_scope = 2,
-		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/italian = 15
+		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/italian = 15,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/italian = 10,
 
 		)
 
@@ -129,7 +135,9 @@
 		/obj/item/weapon/shovel/spade/german = 25,
 		/obj/item/weapon/gun/projectile/boltaction/kar98k = 25,
 		/obj/item/ammo_magazine/kar98k = 50,
-		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/german = 25
+		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/german = 25,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/german = 25,
+
 	)
 //	idle_power_usage = 0
 
@@ -146,6 +154,7 @@
 		/obj/item/ammo_magazine/a77x58 = 50,
 		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/japanese = 25,
 		/obj/item/weapon/material/knife/boot = 25,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/japanese = 25,
 	)
 
 /obj/structure/vending/usaquipment
@@ -162,6 +171,7 @@
 		/obj/item/ammo_magazine/c762x63_5 = 10,
 		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/american = 25,
 		/obj/item/weapon/material/knife/boot/tacknife_US = 30,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/usa = 25,
 	)
 
 /obj/structure/vending/SSequipment
@@ -199,6 +209,7 @@
 		/obj/item/clothing/under/geruni/sscamo = 5,
 
 		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/german = 15,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/german = 15,
 	)
 //	idle_power_usage = 0
 
@@ -217,6 +228,7 @@
 		/obj/item/weapon/gauze_pack/gauze = 10,
 		/obj/item/flashlight = 10,
 		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/german = 15,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/german = 15,
 	)
 
 /obj/structure/vending/paratrooper
@@ -232,6 +244,7 @@
 		/obj/item/ammo_magazine/kar98k = 20,
 		/obj/item/ammo_magazine/mp40 = 10,
 		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/german = 10,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/german = 10,
 		/obj/item/weapon/storage/firstaid/adv = 1,
 		/obj/item/weapon/pill_pack/bicaridine = 5,
 		/obj/item/weapon/pill_pack/tramadol = 5
@@ -295,7 +308,7 @@
 	/obj/item/clothing/mask/gas/german = 30,
 	/obj/item/flashlight = 40,
 	/obj/item/clothing/accessory/storage/webbing = 40,
-
+	/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/german = 30,
 
 	)
 
@@ -311,7 +324,8 @@
 		/obj/item/weapon/shovel/spade/russia = 25,
 		/obj/item/weapon/gun/projectile/boltaction/mosin = 25,
 		/obj/item/ammo_magazine/mosin = 50,
-		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/soviet = 25
+		/obj/item/weapon/reagent_containers/food/snacks/MRE/generic/soviet = 25,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen/soviet = 25,
 	)
 
 /obj/structure/vending/medrack

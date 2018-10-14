@@ -104,6 +104,13 @@
 	worn_state = GERMAN_UNIFORM_STATE
 	var/rolled = FALSE
 
+/obj/item/clothing/under/geruni/New()
+	..()
+	if (map && map.ID == MAP_GAZALA)
+		icon_state = "afgeruni"
+		item_state = "afgeruni"
+		worn_state = "afgeruni"
+		item_state_slots["slot_w_uniform"] = "afgeruni"
 /obj/item/clothing/under/geruni/gerofficer
 	name = "german officer's uniform"
 	desc = "A fancier, more pressed uniform of the Nazi Army, given to German officers. It has a feel of pride and authority."
@@ -111,6 +118,13 @@
 	item_state = "geruniofficer"
 	worn_state = "geruniofficer"
 
+/obj/item/clothing/under/geruni/gerofficer/New()
+	..()
+	if (map && map.ID == MAP_GAZALA)
+		icon_state = "afgerofficer"
+		item_state = "afgerofficer"
+		worn_state = "afgerofficer"
+		item_state_slots["slot_w_uniform"] = "afgerofficer"
 /obj/item/clothing/under/geruni/kriegsmarine
 	name = "Kriegsmarine sailor uniform"
 	desc = "A dark blue uniform of the Kriegsmarine."
@@ -148,18 +162,33 @@
 	set src in usr
 	if (type != /obj/item/clothing/under/geruni)
 		return // no sprites - Kachnov
-	if (rolled)
-		item_state = "geruni"
-		worn_state = "geruni"
-		item_state_slots["slot_w_uniform"] = "geruni"
-		usr << "<span class = 'danger'>You roll down your uniform's sleeves.</span>"
-		rolled = FALSE
-	else if (!rolled)
-		item_state = "gerunirolledup"
-		worn_state = "gerunirolledup"
-		item_state_slots["slot_w_uniform"] = "gerunirolledup"
-		usr << "<span class = 'danger'>You roll up your uniform's sleeves.</span>"
-		rolled = TRUE
+	if (map && map.ID == MAP_GAZALA)
+		if (rolled)
+			item_state = "afgeruni"
+			worn_state = "afgeruni"
+			item_state_slots["slot_w_uniform"] = "afgeruni"
+			usr << "<span class = 'danger'>You roll down your uniform's sleeves.</span>"
+			rolled = FALSE
+		else if (!rolled)
+			item_state = "afgerunirolledup"
+			worn_state = "afgerunirolledup"
+			item_state_slots["slot_w_uniform"] = "afgerunirolledup"
+			usr << "<span class = 'danger'>You roll up your uniform's sleeves.</span>"
+			rolled = TRUE
+
+	else
+		if (rolled)
+			item_state = "geruni"
+			worn_state = "geruni"
+			item_state_slots["slot_w_uniform"] = "geruni"
+			usr << "<span class = 'danger'>You roll down your uniform's sleeves.</span>"
+			rolled = FALSE
+		else if (!rolled)
+			item_state = "gerunirolledup"
+			worn_state = "gerunirolledup"
+			item_state_slots["slot_w_uniform"] = "gerunirolledup"
+			usr << "<span class = 'danger'>You roll up your uniform's sleeves.</span>"
+			rolled = TRUE
 	update_clothing_icon()
 
 /obj/item/clothing/under/geruni/general
@@ -300,21 +329,39 @@
 	icon_state = "USuni_green"
 	item_state = "USuni_green"
 	worn_state = "USuni_green"
-
+/obj/item/clothing/under/usuni/New()
+	..()
+	if (map && map.ID == MAP_GAZALA)
+		icon_state = "USuni"
+		item_state = "USuni"
+		worn_state = "USuni"
+		item_state_slots["slot_w_uniform"] = "USuni"
 /obj/item/clothing/under/usuni2
 	name = "US Army Light Uniform"
 	desc = "A uniform lacking its jacket. When you don't want to sweat your balls off and you want to be modest."
 	icon_state = "USuni_green2"
 	item_state = "USuni_green2"
 	worn_state = "USuni_green2"
-
+/obj/item/clothing/under/usuni2/New()
+	..()
+	if (map && map.ID == MAP_GAZALA)
+		icon_state = "USuni2"
+		item_state = "USuni2"
+		worn_state = "USuni2"
+		item_state_slots["slot_w_uniform"] = "USuni2"
 /obj/item/clothing/under/usuni3
 	name = "US Army Uniform pants"
 	desc = "A pair of Khaki cotton pants, sometimes you gotta show your other guns to intimidate the enemy... And so you don't sweat your balls off."
 	icon_state = "USuni_green3"
 	item_state = "USuni_green3"
 	worn_state = "USuni_green3"
-
+/obj/item/clothing/under/usuni3/New()
+	..()
+	if (map && map.ID == MAP_GAZALA)
+		icon_state = "USuni3"
+		item_state = "USuni3"
+		worn_state = "USuni3"
+		item_state_slots["slot_w_uniform"] = "USuni3"
 /obj/item/clothing/under/uscapuni
 	name = "US Army Officer Uniform"
 	desc = "A standard uniform of an officer of the United States Army."
@@ -330,6 +377,13 @@
 /obj/item/clothing/under/usuni_para
 	name = "US Paratrooper Uniform"
 	desc = "A standard uniform of a paratrooper of the United States Army."
+	icon_state = "USparatrooperuni"
+	item_state = "USparatrooperuni"
+	worn_state = "USparatrooperuni"
+
+/obj/item/clothing/under/brituni
+	name = "British Army Uniform"
+	desc = "A standard uniform of the Royal Army of the United Kingdom."
 	icon_state = "USparatrooperuni"
 	item_state = "USparatrooperuni"
 	worn_state = "USparatrooperuni"
@@ -413,6 +467,12 @@
 	desc = GERMAN_HELMET_DESC
 	icon_state = GERMAN_HELMET_STATE
 	item_state = GERMAN_HELMET_STATE
+/obj/item/clothing/head/helmet/gerhelm/New()
+	..()
+	if (map && map.ID == MAP_GAZALA)
+		icon_state = "afgerhelm"
+		item_state = "afgerhelm"
+		worn_state = "afgerhelm"
 
 /obj/item/clothing/head/helmet/polhelm
 	name = "Polish Stahlhelm"
@@ -724,10 +784,33 @@
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen
 		)
 /obj/item/weapon/storage/belt/usa
+	name = "small US belt pouch"
+	desc = "A belt that can hold gear like pistols, ammo and other things."
+	icon_state = "USbelt"
+	item_state = "USbelt"
+	storage_slots = 6
+	max_w_class = 3
+	max_storage_space = 12
+	can_hold = list(
+		/obj/item/ammo_magazine,
+		/obj/item/weapon/material,
+		/obj/item/weapon/gauze_pack,
+		/obj/item/weapon/grenade,
+		/obj/item/weapon/attachment,
+		/obj/item/weapon/gun/projectile/pistol,
+		/obj/item/weapon/gun/projectile/revolver,
+		/obj/item/weapon/melee/classic_baton,
+		/obj/item/flashlight,
+		/obj/item/weapon/handcuffs,
+		/obj/item/ammo_casing/a145,
+		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen
+		)
+
+/obj/item/weapon/storage/belt/usa/gear
 	name = "US belt pouch"
 	desc = "A belt that can hold gear like pistols, ammo and other things."
-	icon_state = "gerbelt"
-	item_state = "gerbelt"
+	icon_state = "USgear"
+	item_state = "USgear"
 	storage_slots = 12
 	max_w_class = 3
 	max_storage_space = 24
@@ -745,6 +828,15 @@
 		/obj/item/ammo_casing/a145,
 		/obj/item/weapon/reagent_containers/food/drinks/bottle/canteen
 		)
+
+/obj/item/weapon/storage/belt/holster
+	name = "Holster belt "
+	desc = "A belt that can hold almost anything that you want."
+	icon_state = "belt_holster"
+	item_state = "belt_holster"
+	storage_slots = 12
+	max_w_class = 3
+	max_storage_space = 24
 
 /obj/item/weapon/storage/belt/german_basic
 	name = "German soldier belt"
@@ -951,6 +1043,13 @@
 	item_state = "wrench"
 	worn_state = "wrench"
 
+/obj/item/clothing/under/gulag
+	name = "Gulag Prisoner's Clothing"
+	desc = "Looks worn and dirty."
+	icon_state = "wrench"
+	item_state = "wrench"
+	worn_state = "wrench"
+
 /obj/item/clothing/under/oilworker
 	name = "Oil Worker's Clothing"
 	desc = "Smells like oil and hard work."
@@ -1080,6 +1179,13 @@
 	item_state = "nazi_coat"
 	worn_state = "nazi_coat"
 
+/obj/item/clothing/suit/storage/coat/german/New()
+	..()
+	if (map && map.ID == MAP_GAZALA)
+		icon_state = "afgercoat"
+		item_state = "afgercoat"
+		worn_state = "afgercoat"
+
 /obj/item/clothing/suit/storage/coat/sssmock
 	name = "S.S. Smock"
 	desc = "A camo SchutzStaffel overcoat that blends in well in the fall."
@@ -1108,6 +1214,14 @@
 	icon_state = "soviet_coat"
 	item_state = "soviet_coat"
 	worn_state = "soviet_coat"
+
+
+/obj/item/clothing/suit/storage/coat/american
+	name = "American Soldier's Coat"
+	desc = "An ordinary winter coat issued to US soldiers."
+	icon_state = "american_coat"
+	item_state = "american_coat"
+	worn_state = "american_coat"
 
 /obj/item/clothing/suit/storage/coat/soviet/officer
 	name = "Soviet Officer's Coat"
@@ -1187,3 +1301,44 @@
 	icon_state = "m38_mask"
 	item_state = "m38_mask"
 	filtered_gases = list("xylyl_bromide", "mustard_gas", "white_phosphorus_gas", "chlorine_gas", "zyklon_b")
+
+/obj/item/clothing/mask/shemagh
+	name = "shemagh"
+	desc = "Protects your face from wind, dust and sand. It can also be adjusted. All in all, a practical item of clothing!"
+	icon_state = "shemagh1"
+	item_state = "shemagh1"
+	flags_inv = BLOCKHEADHAIR|BLOCKFACEHAIR
+	var/state = 1 //1 = Hides everything, 2 = Hides head, 3 = Hides face, 4 = Doesn't hide anything, covers neck
+
+/obj/item/clothing/mask/shemagh/New()
+	spawn(1)
+		if(istype(loc,/mob))
+			state = rand(1,4)
+			change_position()
+
+/obj/item/clothing/mask/shemagh/attack_self(var/mob/user)
+	change_position()
+
+/obj/item/clothing/mask/shemagh/proc/change_position()
+	var/mob/living/carbon/human/H = usr
+	switch(state)
+		if(1)
+			state = 2
+			flags_inv = BLOCKHEADHAIR
+			H << "You adjust [src] to reveal your face."
+		if(2)
+			state = 3
+			flags_inv = BLOCKFACEHAIR
+			H << "You adjust [src] to cover your mouth."
+		if(3)
+			state = 4
+			flags_inv = null
+			H << "You adjust [src] to cover your neck."
+		if(4)
+			state = 1
+			flags_inv = BLOCKHAIR
+			H << "You adjust [src] to cover your head."
+	icon_state = "shemagh[state]"
+	item_state = "shemagh[state]"
+	H.update_inv_wear_mask(0)
+	H.update_inv_head()

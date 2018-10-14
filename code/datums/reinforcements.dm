@@ -154,45 +154,45 @@ var/datum/reinforcements/reinforcements_master = null
 				german_countdown = german_countdown_success_reset
 				allow_quickspawn[GERMAN] = FALSE
 	if (map.front == "Pacific")
-		if (reinforcement_pool[SOVIET] && reinforcement_pool[GERMAN])
-			for (var/mob/new_player/np in reinforcement_pool[SOVIET])
+		if (reinforcement_pool[USA] && reinforcement_pool[JAPAN])
+			for (var/mob/new_player/np in reinforcement_pool[USA])
 				if (!np || !np.client)
-					reinforcement_pool[SOVIET] -= np
-			for (var/mob/new_player/np in reinforcement_pool[GERMAN])
+					reinforcement_pool[USA] -= np
+			for (var/mob/new_player/np in reinforcement_pool[JAPAN])
 				if (!np || !np.client)
-					reinforcement_pool[GERMAN] -= np
+					reinforcement_pool[JAPAN] -= np
 
-		soviet_countdown = soviet_countdown - tick_len
-		if (soviet_countdown < 1)
-			if (!reset_soviet_timer())
-				soviet_countdown = soviet_countdown_failure_reset
+		usa_countdown = usa_countdown - tick_len
+		if (usa_countdown < 1)
+			if (!reset_usa_timer())
+				usa_countdown = usa_countdown_failure_reset
 			else
-				soviet_countdown = soviet_countdown_success_reset
-				allow_quickspawn[SOVIET] = FALSE
+				usa_countdown = usa_countdown_success_reset
+				allow_quickspawn[USA] = FALSE
 
-		german_countdown = german_countdown - tick_len
-		if (german_countdown < 1)
-			if (!reset_german_timer())
-				german_countdown = german_countdown_failure_reset
+		japan_countdown = japan_countdown - tick_len
+		if (japan_countdown < 1)
+			if (!reset_japan_timer())
+				japan_countdown = japan_countdown_failure_reset
 			else
-				german_countdown = german_countdown_success_reset
-				allow_quickspawn[GERMAN] = FALSE
+				japan_countdown = japan_countdown_success_reset
+				allow_quickspawn[JAPAN] = FALSE
 	if (map.front == "Western")
-		if (reinforcement_pool[SOVIET] && reinforcement_pool[GERMAN])
-			for (var/mob/new_player/np in reinforcement_pool[SOVIET])
+		if (reinforcement_pool[USA] && reinforcement_pool[GERMAN])
+			for (var/mob/new_player/np in reinforcement_pool[USA])
 				if (!np || !np.client)
-					reinforcement_pool[SOVIET] -= np
+					reinforcement_pool[USA] -= np
 			for (var/mob/new_player/np in reinforcement_pool[GERMAN])
 				if (!np || !np.client)
 					reinforcement_pool[GERMAN] -= np
 
-		soviet_countdown = soviet_countdown - tick_len
-		if (soviet_countdown < 1)
-			if (!reset_soviet_timer())
-				soviet_countdown = soviet_countdown_failure_reset
+		usa_countdown = usa_countdown - tick_len
+		if (usa_countdown < 1)
+			if (!reset_usa_timer())
+				usa_countdown = usa_countdown_failure_reset
 			else
-				soviet_countdown = soviet_countdown_success_reset
-				allow_quickspawn[SOVIET] = FALSE
+				usa_countdown = usa_countdown_success_reset
+				allow_quickspawn[USA] = FALSE
 
 		german_countdown = german_countdown - tick_len
 		if (german_countdown < 1)
@@ -311,13 +311,13 @@ var/datum/reinforcements/reinforcements_master = null
 		for (var/mob/new_player/np in l)
 			if (np) // maybe helps with logged out nps
 				np.LateSpawnForced("Private", TRUE, TRUE)
-				reinforcements_granted[JAPAN] = reinforcements_granted[JAPAN]+1
+				reinforcements_granted[USA] = reinforcements_granted[USA]+1
 				ret = TRUE
 	if (map.front == "Western")
 		for (var/mob/new_player/np in l)
 			if (np) // maybe helps with logged out nps
 				np.LateSpawnForced("Private", TRUE, TRUE)
-				reinforcements_granted[JAPAN] = reinforcements_granted[JAPAN]+1
+				reinforcements_granted[USA] = reinforcements_granted[USA]+1
 				ret = TRUE
 	reinforcement_pool[SOVIET] = list()
 	lock_check()
@@ -534,7 +534,10 @@ datum/reinforcements/proc/lock_check()
 			l += "The Axis base is currently occupied; Reinforcements cannot be deployed."
 		else
 			l += "Axis:: "
-			l += "Deployed: [reinforcements_granted[GERMAN]]/[max_german_reinforcements]"
+			if (map.front == "Eastern" || map.front == "Western")
+				l += "Deployed: [reinforcements_granted[GERMAN]]/[max_german_reinforcements]"
+			else
+				l += "Deployed: [reinforcements_granted[JAPAN]]/[max_japan_reinforcements]"
 			l += "Deploying: [r_german()]/[reinforcement_add_limit_german] ([reinforcement_spawn_req] needed) in [german_countdown] seconds"
 			l += "Locked: [locked[GERMAN] ? "Yes" : "No"]"
 
@@ -544,7 +547,10 @@ datum/reinforcements/proc/lock_check()
 			l += "The Allied base is currently occupied; Reinforcements cannot be deployed."
 		else
 			l += "Allies:: "
-			l += "Deployed: [reinforcements_granted[SOVIET]]/[max_soviet_reinforcements]"
+			if (map.front == "Eastern")
+				l += "Deployed: [reinforcements_granted[SOVIET]]/[max_soviet_reinforcements]"
+			else
+				l += "Deployed: [reinforcements_granted[USA]]/[max_usa_reinforcements]"
 			l += "Deploying: [r_soviet()]/[reinforcement_add_limit_soviet] ([reinforcement_spawn_req] needed) in [soviet_countdown] seconds"
 			l += "Locked: [locked[SOVIET] ? "Yes" : "No"]"
 
