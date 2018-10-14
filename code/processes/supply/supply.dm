@@ -3,15 +3,6 @@
 	var/tmpTime2 = 0
 	var/list/points = list(GERMAN = 500, SOVIET = 500)
 	var/list/codes = list(GERMAN = 1234, SOVIET = 1234)
-	var/list/german_special_reinforcements = list(
-
-		"Medic" = 0,
-		"Engineer" = 0,
-		"Sniper" = 0,
-		"Anti-Tank Soldier" = 0,
-		"Flamethrower Soldier" = 0,
-		"Machinegunner" = 0
-	)
 	var/list/german_crate_types = list(
 
 		// AMMO AND MISC.
@@ -80,15 +71,6 @@
 		"Medical Crate" = /obj/structure/closet/crate/medical
 	)
 
-	var/list/soviet_special_reinforcements = list(
-
-		"Medic",
-		"Engineer",
-		"Sniper",
-		"Anti-Tank Soldier",
-		"Machinegunner"
-	)
-
 	var/static/list/soviet_crate_types = list(
 
 		// AMMO AND MISC.
@@ -149,16 +131,6 @@
 		// MEDICAL STUFF
 		"Medical Crate" = /obj/structure/closet/crate/medical
 
-	)
-
-	var/list/reinforcements_costs = list(
-
-		"Medic" = 100,
-		"Engineer" = 100,
-		"Sniper" = 100,
-		"Anti-Tank Soldier" = 100,
-		"Flamethrower Soldier" = 100,
-		"Machinegunner" = 100
 	)
 
 	var/list/crate_costs = list(

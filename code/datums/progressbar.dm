@@ -15,8 +15,7 @@
 	bar = image('icons/effects/progessbar.dmi', target, "prog_bar_0")
 	bar.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	bar.pixel_y = 32
-	bar.layer = 10
-	bar.plane = HUD_PLANE
+	bar.layer = 1000
 	user = _user
 	if (user)
 		client = user.client

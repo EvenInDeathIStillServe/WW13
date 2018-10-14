@@ -55,5 +55,3 @@ What is the naming convention for planes or layers?
 #define GAME_PLANE 1
 
 #define FLOOR_PLANE 0
-
-#define UNDERFLOOR_PLANE -1
